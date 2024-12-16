@@ -12,5 +12,31 @@
             "Cost": 25.34,
             "Description": "Popeyes"
         }
+    },
+    {
+        "05-22-2024": {
+            "Category": "Food",
+            "Cost": 12.99,
+            "Description": "Wendy's"
+        }
+    },
+    {
+        "01-21-2024": {
+            "Category": "Shopping",
+            "Cost": 426.35,
+            "Description": "Pentagon fashion center"
+        },
+        "03-15-2024": {
+            "Category": "Shopping",
+            "Cost": 12.34,
+            "Description": "New socks"
+        }
+    },
+    {
+        "07-24-2024": {
+            "Category": "Rent",
+            "Cost": 2815.12,
+            "Description": "E-lofts"
+        }
     }
 ]

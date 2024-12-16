@@ -28,11 +28,50 @@ def viewTracker():
                 print('Filter tracker by:\n')
                 menu_options = input('1 - Date\n2 - Category\n3 - Cost\n4 - Exit\n')
                 if menu_options == '1':
-                    print('Date sort ')
+                    with open('tracker.json') as f:
+                        data = json.load(f)
+                # Flatten the data into a list of details, adding the date to each entry
+                        flattened_expenses = []
+                        for expense in data:
+                            for date, details in expense.items():
+                                details["Date"] = date  # Add the date as part of the details
+                                flattened_expenses.append(details)
+                        # Sort the flattened list by "Category"
+                        sorted_expenses = sorted(flattened_expenses, key=lambda k: datetime.strptime(k["Date"], "%m-%d-%Y"))
+                        # Display the sorted expenses
+                        print("Expenses sorted by date:")
+                        for expense in sorted_expenses:
+                            print(f"Date: {expense['Date']}, Category: {expense['Category']}, Cost: ${expense['Cost']}, Description: {expense['Description']}")
                 elif menu_options == '2':
-                    print('Category sort')
+                    with open('tracker.json') as f:
+                        data = json.load(f)
+                # Flatten the data into a list of details, adding the date to each entry
+                    flattened_expenses = []
+                    for expense in data:
+                        for date, details in expense.items():
+                            details["Date"] = date  # Add the date as part of the details
+                            flattened_expenses.append(details)
+                    # Sort the flattened list by "Category"
+                    sorted_expenses = sorted(flattened_expenses, key=lambda k: k["Category"])
+                    # Display the sorted expenses
+                    print("Expenses sorted by category:")
+                    for expense in sorted_expenses:
+                        print(f"Date: {expense['Date']}, Category: {expense['Category']}, Cost: ${expense['Cost']}, Description: {expense['Description']}")
                 elif menu_options == '3':
-                    print('Cost sort')
+                       with open('tracker.json') as f:
+                        data = json.load(f)
+                # Flatten the data into a list of details, adding the date to each entry
+                        flattened_expenses = []
+                        for expense in data:
+                            for date, details in expense.items():
+                                details["Date"] = date  # Add the date as part of the details
+                                flattened_expenses.append(details)
+                        # Sort the flattened list by "Category"
+                        sorted_expenses = sorted(flattened_expenses, key=lambda k: k["Cost"])
+                        # Display the sorted expenses
+                        print("Expenses sorted by cost:")
+                        for expense in sorted_expenses:
+                            print(f"Date: {expense['Date']}, Category: {expense['Category']}, Cost: ${expense['Cost']}, Description: {expense['Description']}")
                 else:
                     print('Returning to tracker...')
                     viewTracker()
@@ -116,4 +155,3 @@ def save_to_json(expense):
 #call main menu function      
 main_menu()
 
-#function to calculate expenses
